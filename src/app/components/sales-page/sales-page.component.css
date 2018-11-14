@@ -1,0 +1,47 @@
+
+.side-nav{
+  height: 100%;
+  width: 350px;
+  background: white;
+  margin-left: 10px;
+  position: fixed;
+  border-radius: 5px;
+  font-family: "Lucida Bright";
+
+}
+
+.chart-div{
+  height: 65%;
+  width: 70%;
+  background: white;
+  margin-left: 380px;
+  position: fixed;
+  border-radius: 5px;
+  font-family: "Lucida Bright";
+}
+
+.sats-div{
+  margin-top: 40%;
+  height: 100%;
+  width: 70%;
+  position: fixed;
+  background: white;
+  margin-left: 380px;
+  border-radius: 5px;
+  display: block;
+  overflow-y: scroll;
+  font-family: "Lucida Bright";
+}
+
+.itemDetails{
+  text-align: center;
+  padding-top: 10px;
+}
+
+.list-center{
+  text-align: center;
+}
+
+.div-padding{
+  margin: 30px;
+}

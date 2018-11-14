@@ -1,0 +1,85 @@
+<div *ngIf="!gotItem" class="div-padding">
+  <button (click)="getItemDetails()">Click here to see page</button>
+</div>
+
+<div *ngIf="gotItem">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#" style="color: white; text-align: center">
+        StackLine
+      </a>
+    </nav>
+
+    <div class="div-padding"></div>
+
+    <div class="side-nav">
+      <div>
+        <div  class="itemDetails">
+        <img src={{item.image}} height="30%" width="30%">
+        <h4>{{item.title}}</h4>
+        <p>{{item.subtitle}}</p>
+        <hr>
+        <div *ngFor="let tag of item.tags">
+          <span class="badge badge-light">{{tag}}</span>
+        </div>
+          <hr>
+        </div>
+
+        <div>
+          <ul class="list-group list-group-flush list-center">
+            <li class="list-group-item">
+              <a routerLink="#">Overview</a>
+            </li>
+            <li class="list-group-item">
+              <a routerLink="#">Sales</a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="chart-div">
+      <div style="display: block">
+        <canvas baseChart
+                [datasets] = "ChartData"
+                [labels]="Chartlabels"
+                [options]="ChartOptions"
+                [legend]="ChartLegend"
+                [chartType]="ChartType">
+        </canvas>
+      </div>
+    </div>
+
+
+  <div  class="sats-div">
+    <table class="table table-hover">
+      <thead >
+      <tr>
+        <th scope="col">WeekEnd</th>
+        <th scope="col">Retail</th>
+        <th scope="col">WholeSale</th>
+        <th scope="col">UnitSale</th>
+        <th scope="col">RetailMargin</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr *ngFor="let sale of saleDetails">
+        <th>{{sale.weekEnding}}</th>
+        <td>{{sale.retailSales}}</td>
+        <td>{{sale.wholesaleSales}}</td>
+        <td>{{sale.unitsSold}}</td>
+        <td>{{sale.retailerMargin}}</td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
