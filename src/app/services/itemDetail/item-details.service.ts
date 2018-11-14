@@ -11,11 +11,7 @@ export class ItemDetailsService {
   }
 
   getData(): Observable<Item[]> {
+    console.log(this.http.get<Item[]>('../../assets/Webdev_data2.json'));
     return this.http.get<Item[]>('../../assets/Webdev_data2.json');
   }
-
-
-
-
-
 }

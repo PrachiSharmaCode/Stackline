@@ -40,32 +40,37 @@ export class SalesPageComponent implements OnInit {
   constructor(private itemDetailService: ItemDetailsService) {
   }
 
-  getItemDetails() {
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].id === 'B007TIE0GQ') {
-        this.item = this.items[i];
+  getItemDetails(test: Item[]) {
+    console.log('inside grtitem');
+    // console.log(this.items);
+    for (let i = 0; i < test.length; i++) {
+      if (test[i].id === 'B007TIE0GQ') {
+        this.item = test[i];
       }
     }
+    console.log(this.item);
 
     for (let j = 0; j < this.item.sales.length; j++) {
       this.wholeSale.push(this.item.sales[j].wholesaleSales);
     }
+    console.log(this.wholeSale);
 
     for (let k = 0; k < this.item.sales.length; k++) {
       this.retailSale.push(this.item.sales[k].retailSales);
     }
 
-    for (let x = 0; x < this.items.length; x++) {
-      if (this.items[x].id === 'B007TIE0GQ') {
-        this.saleDetails = this.items[x].sales;
+    for (let x = 0; x < test.length; x++) {
+      if (test[x].id === 'B007TIE0GQ') {
+        this.saleDetails = test[x].sales;
       }
     }
+    console.log(this.saleDetails);
     this.gotItem = true;
   }
 
 
   ngOnInit() {
     this.itemDetailService.getData()
-      .subscribe((item => this.items = item));
+      .subscribe((item => this.getItemDetails(item)));
   }
 }
